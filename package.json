@@ -10,7 +10,7 @@
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lint": "npm run lint:js",
     "test": "jest",
-    "deploy": "push-dir --dir=dist --branch=master --cleanup --force"
+    "deploy": "push-dir --dir=dist --branch=gh-pages --local-branch-name=gh-pages --overwrite-local --cleanup --force"
   },
   "dependencies": {
     "@nuxt/content": "^1.5.0",
