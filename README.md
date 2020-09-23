@@ -1,4 +1,5 @@
 # blanke-tech
+[![Build Status](https://travis-ci.com/andSubmarine/blanke-tech.svg?branch=master)](https://travis-ci.com/andSubmarine/blanke-tech)
 
 ## Build Setup
 
