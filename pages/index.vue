@@ -1,30 +1,24 @@
 <template>
-  <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">
-        blanke-tech
-      </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
+  <b-container fluid class="p-0">
+    <b-row id="page-1" align-v="stretch">
+      <b-col>
+        <h1 id="buzzwords">
+          FULL-STACK, AGILE, ANDROID, SCRUM, ARCHITECTURE, ENGINEERING, SECURITY, PROJECT MANAGEMENT & OTHER BUZZWORDS  
+        </h1>
+        <a href="#page-3">
+          <b-button id="b-buzzwords">Learn more</b-button>
         </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
-  </div>
+      </b-col>
+    </b-row>
+    <b-row id="page-2" align-v="stretch">
+      <b-col>
+      </b-col>
+    </b-row>
+    <b-row id="page-3" align-v="stretch">
+      <b-col>
+      </b-col>
+    </b-row>
+  </b-container>
 </template>
 
 <script lang="ts">
@@ -34,42 +28,30 @@ export default Vue.extend({})
 </script>
 
 <style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+#page-1 {
+  background-color: #6072A6;
 }
 
-.title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
+#buzzwords {
+  margin: 1rem 1rem;
+  font-family: "Segoe UI";
+  font-size: 3rem;
+  color: #F2EEEB;
 }
 
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
+#b-buzzwords {
+  background-color: #26732B;
+  min-width: 80%;
+  padding: .5rem .5rem;
+  font-size: 1.5rem;
 }
 
-.links {
-  padding-top: 15px;
+#page-2 {
+  background-color: #0D0D0D;
 }
+
+#page-3 {
+  background-color: #26732B;
+}
+
 </style>
