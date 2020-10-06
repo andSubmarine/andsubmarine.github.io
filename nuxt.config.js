@@ -22,14 +22,13 @@ export default {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/blanke-tech/favicon.ico' }
     ]
   },
   /*
   ** Global CSS
   */
-  css: [
-  ],
+  css: ['@/assets/app.scss'],
   /*
   ** Plugins to load before mounting the App
   ** https://nuxtjs.org/guide/plugins
