@@ -1,8 +1,8 @@
 <template>
   <b-row id="page-1" align-v="stretch">
       <b-col>
-        <h1 id="buzzwords">
-          FULL-STACK, AGILE, ANDROID, SCRUM, ARCHITECTURE, ENGINEERING, SECURITY, PROJECT MANAGEMENT & OTHER BUZZWORDS  
+        <h1 id="buzzwords" class="align-middle">
+          AGILE MINDED, FULL-STACKER, ANDROID DEV, SECURITY-ORIENTED, SCRUM FOLLOWER, SOFTWARE ARCHITECT & ENGINEER
         </h1>
         <a href="#page-3">
           <b-button id="b-buzzwords">Learn more</b-button>
@@ -20,19 +20,21 @@ export default Vue.extend({})
 <style lang="scss">
 #page-1 {
   background-color: #6072A6;
-  background-image: url("/blanke-tech/background-1.jpg");
+  background-image: url("/blanke-tech/background-2.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 #buzzwords {
-  margin: 1rem 1rem;
+  margin: 1rem 2.1rem;
   font-family: "Segoe UI";
-  font-size: 3rem;
+  text-shadow: 1px 1px black;
   color: #F2EEEB;
   letter-spacing: 5px;
-  line-height: 1.3;
+  font-size: 2.2rem;
+  line-height: 1.8;
+  height: 85vh;
 }
 
 #b-buzzwords {
@@ -42,10 +44,44 @@ export default Vue.extend({})
   font-size: 1.5rem;
 }
 
+@media (min-width: 576px) { 
+  #buzzwords {
+    font-size: 2.3rem;
+    line-height: 1.7;
+    height: 75vh;
+  }
+}
+
 @media (min-width: 768px) { 
-    #buzzwords {
-        margin: 3rem 10rem;
-        font-size: 3.4rem;
-    }
+  #buzzwords {
+    margin: 3rem 4rem;
+    line-height: 2;
+    font-size: 3.3rem;
+    height: 80vh;
+  }
+  #b-buzzwords {
+    padding: .8rem .8rem;
+    font-size: 1.8rem;
+  }
+}
+
+@media (min-width: 992px) {
+  #buzzwords {
+    height: 75vh;
+    font-size: 3.4rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  #buzzwords {
+    margin: 3rem 10rem;
+    font-size: 4rem;
+    line-height: 1.5;
+  }
+}
+@media (min-width: 1400px) {
+  #buzzwords {
+    font-size: 4.5rem;
+  }
 }
 </style>
