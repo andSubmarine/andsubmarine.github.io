@@ -3,7 +3,10 @@
 </template>
 
 <style>
-.row {
+body {
+  background-color: #6072A6;
+}
+.landing-pages {
   margin: 0 auto;
   min-height: 100vh;
   display: flex;

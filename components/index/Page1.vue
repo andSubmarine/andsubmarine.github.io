@@ -1,5 +1,5 @@
 <template>
-  <b-row id="page-1" align-v="stretch">
+  <b-row id="page-1" class="landing-pages" align-v="stretch">
       <b-col>
         <h1 id="buzzwords" class="align-middle">
           AGILE MINDED, FULL-STACKER, ANDROID DEV, SECURITY-ORIENTED, SCRUM FOLLOWER, SOFTWARE ARCHITECT & ENGINEER
@@ -19,7 +19,7 @@ export default Vue.extend({})
 
 <style lang="scss">
 #page-1 {
-  background-color: #6072A6;
+  background-color: #000;
   background-image: url("/blanke-tech/background-2.jpg");
   background-position: center;
   background-repeat: no-repeat;

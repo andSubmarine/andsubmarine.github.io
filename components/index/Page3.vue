@@ -1,5 +1,5 @@
 <template>
-    <b-row id="page-3" align-v="stretch">
+    <b-row id="page-3" class="landing-pages" align-v="stretch">
       <b-col>
       </b-col>
     </b-row>
