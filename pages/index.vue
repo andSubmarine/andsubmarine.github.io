@@ -1,7 +1,7 @@
 <template>
   <b-container fluid class="p-0">
-    <Page1/>
-    <Page2/>
-    <Page3/>
+    <ImagePage/>
+    <AboutPage/>
+    <ProjectPage/>
   </b-container>
 </template>

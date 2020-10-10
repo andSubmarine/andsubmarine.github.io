@@ -4,7 +4,8 @@
 
 <style>
 body {
-  background-color: #6072A6;
+  background-color:#D95F5F;
+  min-height: 100%;
 }
 .landing-pages {
   margin: 0 auto;
