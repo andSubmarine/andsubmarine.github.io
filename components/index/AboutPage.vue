@@ -15,13 +15,12 @@ import {Component, Vue} from 'nuxt-property-decorator'
 export default class AboutPage extends Vue {
   page: any = {};
   async created() {
-    this.page = await this.$content("","about").fetch();
+    this.page = await this.$content("about","intro").fetch();
   }
 }
 </script>
 
 <style>
-
 #about {
   background-color: #26732B;
 }

@@ -1,11 +1,7 @@
 <template>
   <article v-if="page">
-    <nuxt-link id="back-button" to="/">
-      <b-button pill variant="primary" >
-        <b-icon-arrow-left-circle-fill></b-icon-arrow-left-circle-fill> 
-        Go back
-      </b-button>
-    </nuxt-link>
+    <ToTopButton />
+    <BackButton route="/" />
     <b-img v-if="page.url" :src="page.url" fluid :alt="page.alt"></b-img>
     <div id="article-body">
       <h1>{{page.title}}</h1>
@@ -24,19 +20,11 @@ export default class Article extends Vue {
     async created() {
         const id = this.$route.params.id;
         this.page = await this.$content("articles",id).fetch();
-        console.log(this.page);
     }
 }
 </script>
 
 <style lang="scss">
-#back-button {
-  position: fixed;
-  margin: 1rem 1rem;
-  bottom: 0;
-  left: 0;
-  z-index: 100;
-}
 article {
   background-color: #F2EEEB;
   min-height: 100vh;

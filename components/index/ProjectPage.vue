@@ -26,11 +26,9 @@
       > Load more...
       </a>
       <p v-else id="no-more">
+        <font-awesome-icon icon="sad-cry" />
         No more articles
-        <b-icon-emoji-dizzy 
-          font-scale="1.5" 
-          shift-v="-2">
-        </b-icon-emoji-dizzy>
+        <font-awesome-icon icon="sad-cry" />
       </p>
     </b-row>
   </b-col>
@@ -73,7 +71,7 @@ export default class ProjectPage extends Vue {
   font-family: monospace;
 }
 #card-group {
-  max-width: 100%;
+  min-width: 100%;
   display: flex;
   flex-wrap: wrap;
 }

@@ -2,7 +2,10 @@
   <Nuxt />
 </template>
 
-<style>
+<style lang="scss">
+html {
+  scroll-behavior: smooth;
+}
 body {
   background-color:#D95F5F;
   min-height: 100%;

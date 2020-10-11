@@ -75,6 +75,11 @@ export default class ArticleCard extends Vue {
   padding: 0;
 }
 
+.card-header img {
+  object-fit: cover;
+  background-position: center top;
+}
+
 .card-no-img {
   height: 40vh !important;
 }
@@ -88,8 +93,8 @@ export default class ArticleCard extends Vue {
 }
 
 .card-title {
-  font-size: 3vw;
   height: 6vh;
+  font-size: 170%;
 }
 
 .card-title, .card-text {

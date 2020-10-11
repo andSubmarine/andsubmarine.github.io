@@ -35,13 +35,12 @@ export default {
   /* Nuxt.js dev-modules */
   buildModules: [
     '@nuxt/typescript-build',
+    '@nuxtjs/fontawesome',
   ],
   /* Nuxt.js modules */
   modules: [
     // Doc: https://bootstrap-vue.js.org
-    ['bootstrap-vue/nuxt', {
-      icons: true,
-    }],
+    'bootstrap-vue/nuxt',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     // Doc: https://github.com/nuxt/content
@@ -68,5 +67,14 @@ export default {
    */
   router: {
     base: '/blanke-tech/'
+  },
+  /* Font-Awesome
+   * See https://www.npmjs.com/package/@nuxtjs/fontawesome
+   */
+  fontawesome: {
+    icons: {
+      solid: true,
+      brands: true
+    }
   }
 }

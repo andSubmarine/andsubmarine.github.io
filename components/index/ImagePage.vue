@@ -1,13 +1,18 @@
 <template>
   <b-row id="top" class="landing-pages" align-v="stretch">
       <b-col>
-        <a href="#about">
-          <b-button id="learn-more">
-            <b-icon-arrow-down-short></b-icon-arrow-down-short>
-            Who is this guy?
-            <b-icon-arrow-down-short></b-icon-arrow-down-short>
-          </b-button>
-        </a>
+        <b-button-group id="learn-more">
+          <a href="#about">
+            <b-button class="b-learn-more b-green">
+              Who is this guy?
+            </b-button>
+          </a>
+          <a href="#articles">
+            <b-button class="b-learn-more b-black">
+              What has he done?
+            </b-button>
+          </a>
+        </b-button-group>
       </b-col>
     </b-row>
 </template>
@@ -29,10 +34,25 @@ export default class ImagePage extends Vue {}
 
 #learn-more {
   margin-top: 80vh;
-  background-color: #26732B;
-  min-width: 50vw;
-  padding: .5rem 0;
+}
+
+.b-learn-more {
+  min-width: 30vw;
+  margin: .5rem .5rem;
+  padding: .5rem .5rem;
   font-size: 1.5rem;
+}
+.b-green {
+  background-color: #26732B;
+  &:hover {
+    background-color:  #349e3b;
+  }
+}
+.b-black {
+  background-color: #0D0D0D;
+  &:hover {
+    background-color:  #353535;
+  }
 }
 
 // @media (min-width: 576px) {}
