@@ -36,7 +36,7 @@ export default class ImagePage extends Vue {
 <style lang="scss">
 #top {
   background-color: #000;
-  background-image: url("/blob/background-2.jpg"), url("/blanke-tech/background-2-low-res.jpg");
+  background-image: url("/blanke-tech/blob/background-2.jpg"), url("/blanke-tech/blob/background-2-low-res.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -77,9 +77,7 @@ export default class ImagePage extends Vue {
 }
 
 // @media (min-width: 768px) {}
-
 // @media (min-width: 992px) {}
-
 // @media (min-width: 1200px) {}
 // @media (min-width: 1400px) {}
 </style>

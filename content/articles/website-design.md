@@ -26,7 +26,7 @@ But what about hosting? Initially, I thought about creating and replacing the Dr
 
 However, deploying the site would quickly become annoying. How could that be resolved? Well, what about building a deployment pipeline using [Travis CI](https://travis-ci.org/)? Now my website can be deployed with a **single push to the master branch** as seen in the image below.
 
-<img alt="Deployment Pipeline" src="./articles/deployment-pipeline.png" class="img-fluid">
+<img alt="Deployment Pipeline" src="./blob/deployment-pipeline.png" class="img-fluid">
 
 Since all articles (such as this one) is written in Markdown (possible due to Nuxt Content) then I can easily create, edit or delete articles from the site - even directly from GitHub's editor!
 
@@ -43,7 +43,7 @@ Designing mobile-first becomes relevant here since it means that we initially de
 
 Finally, I would like to remark that I usually use [Adobe Color](https://color.adobe.com/create/color-wheel) to generate a color palette. In the case of this website, I decided to built a color palette from an image. More specifically, a collage I once made for my previous iteration of my website. The resulting color palette can be seen below:
 
-<img src="./articles/color-pallete.png" alt="Color palette" class="img-fluid" />
+<img src="./blob/color-pallete.png" alt="Color palette" class="img-fluid" />
 
 So if you ask me *"Why did you choose that particular color of green?"* then I'll simply answer *"Because I once had a raincoat in that color."*. It might seem silly, but the colors do seem to fit quite nicely.
 

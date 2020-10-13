@@ -31,7 +31,11 @@ export default class Article extends Vue {
 
     async created() {
         const id = this.$route.params.id;
-        this.page = await this.$content("articles",id).fetch();
+        if(id) {
+          this.page = await this.$content("articles",id).fetch();
+        } else {
+          this.$router.push("/");
+        }
     }
 }
 </script>

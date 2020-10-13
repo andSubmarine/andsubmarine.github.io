@@ -9,7 +9,6 @@ I am currently employed at [Netcompany](https://www.netcompany.com/) where I wor
 ### Hobbies
 Some of my other interests include Dungeons and Dragons (*i.e. plotting the doom of my players*), baking (*mostly with sourdough*) and good coffee (*I have a cubboard full of coffee beans*). Don't tell my roommate, but I'm also working on slowly filling the apartment with rubber ducks and plants.
 
-[<font-awesome-icon :icon="['fab', 'linkedin']"></font-awesome-icon> Connect with me on LinkedIn](https://www.linkedin.com/in/andreas-b-5a926b84
-)
+[<font-awesome-icon :icon="['fab', 'linkedin']"></font-awesome-icon> Connect with me on LinkedIn](https://www.linkedin.com/in/andreas-b-5a926b84)
 
 [<font-awesome-icon :icon="['fab', 'github']"></font-awesome-icon> See my public Github profile](https://github.com/andSubmarine)
