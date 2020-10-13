@@ -2,7 +2,7 @@
   <nuxt-link id="back-button" :to="route">
       <b-button pill variant="primary" >
         <font-awesome-icon icon="arrow-circle-left" /> 
-        Go back
+        Back
       </b-button>
     </nuxt-link>
 </template>
@@ -20,7 +20,7 @@ export default class BackButton extends Vue {
 #back-button {
   position: fixed;
   margin: 1rem 1rem;
-  bottom: 0;
+  top: 0;
   left: 0;
   z-index: 100;
 }

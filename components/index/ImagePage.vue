@@ -2,44 +2,55 @@
   <b-row id="top" class="landing-pages" align-v="stretch">
       <b-col>
         <b-button-group id="learn-more">
-          <a href="#about">
-            <b-button class="b-learn-more b-green">
-              Who is this guy?
-            </b-button>
-          </a>
-          <a href="#articles">
-            <b-button class="b-learn-more b-black">
-              What has he done?
-            </b-button>
-          </a>
+          <b-button class="b-learn-more b-green" @click="handleClick(firstCoords)">
+            Who is this guy?
+          </b-button>
+          <b-button class="b-learn-more b-black" @click="handleClick(secondCoords)">
+            What has he done?
+          </b-button>
         </b-button-group>
       </b-col>
     </b-row>
 </template>
 
-<script lang="ts">import {Component, Vue} from 'nuxt-property-decorator'
+<script lang="ts">
+import {Coords, coords, scrollToElement} from '@/scripts/Coords';
+import {Component, Vue, Prop} from 'nuxt-property-decorator'
 
 @Component
-export default class ImagePage extends Vue {}
+export default class ImagePage extends Vue {
+  @Prop() firstId!: string;
+  @Prop() secondId!: string; 
+
+  get firstCoords(): Coords { return coords(this.firstId); }
+
+  get secondCoords(): Coords { return coords(this.secondId); }
+
+  handleClick(coords: Coords) {
+    scrollToElement(coords);
+  }
+  
+}
 </script>
 
 <style lang="scss">
 #top {
   background-color: #000;
-  background-image: url("/blanke-tech/background-2.jpg");
+  background-image: url("/blanke-tech/background-2.jpg"), url("/blanke-tech/background-2-low-res.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 #learn-more {
-  margin-top: 80vh;
+  margin-top: 75vh;
+  display: inline-block;
 }
 
 .b-learn-more {
-  min-width: 30vw;
-  margin: .5rem .5rem;
-  padding: .5rem .5rem;
+  min-width: 80vw;
+  margin: .5rem .5rem !important;
+  padding: .5rem .5rem !important;
   font-size: 1.5rem;
 }
 .b-green {
@@ -55,7 +66,15 @@ export default class ImagePage extends Vue {}
   }
 }
 
-// @media (min-width: 576px) {}
+@media (min-width: 576px) {
+  #learn-more {
+    margin-top: 80vh;
+    display: inline-flex;
+  }
+  .b-learn-more {
+    min-width: 30vw;
+  }
+}
 
 // @media (min-width: 768px) {}
 

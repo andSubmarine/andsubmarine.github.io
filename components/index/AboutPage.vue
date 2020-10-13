@@ -20,7 +20,7 @@ export default class AboutPage extends Vue {
 }
 </script>
 
-<style>
+<style lang="scss">
 #about {
   background-color: #26732B;
 }
@@ -29,6 +29,14 @@ export default class AboutPage extends Vue {
   padding: 4vh 2vw;
   color: white;
   height: 100% ;
+}
+
+#about-content a {
+  color: white;
+  text-decoration: underline;
+  &:hover {
+    color: #b4dab6;
+  }
 }
 
 </style>

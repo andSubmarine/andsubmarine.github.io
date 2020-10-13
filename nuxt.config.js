@@ -21,6 +21,12 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/blanke-tech/favicon.ico' }
     ]
   },
+  /* Environment (global) variables
+   * https://nuxtjs.org/api/configuration-env/
+   */
+  env: {
+    title: process.env.npm_package_name
+  },
   /* Global CSS */
   css: ['@/assets/app.scss'],
   /* Plugins to load before mounting the App

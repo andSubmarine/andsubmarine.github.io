@@ -3,9 +3,6 @@
 </template>
 
 <style lang="scss">
-html {
-  scroll-behavior: smooth;
-}
 body {
   background-color:#D95F5F;
   min-height: 100%;
@@ -17,5 +14,20 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+body::-webkit-scrollbar {
+    width: 0.5rem;
+    background-color: #d3d3d3;
+}
+ 
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 0.2rem;
+}
+ 
+body::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+    border-radius: 0.2rem;
+    background-color: #5a5a5a;
 }
 </style>

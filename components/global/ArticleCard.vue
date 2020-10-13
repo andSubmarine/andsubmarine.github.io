@@ -32,8 +32,7 @@ export default class ArticleCard extends Vue {
   @Prop({ default: 0 }) index!: number;
 
   get updatedAt() {
-    const date = new Date(this.article.updatedAt);
-    return date.toLocaleString()
+    return new Date(this.article.updatedAt).toLocaleString("en-GB");
   }
 }
 </script>
