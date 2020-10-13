@@ -1,4 +1,4 @@
-My name is **Andreas Blanke** and I am a 24 year-old Danish software engineer living on Amager in Copenhagen. I would typically describe myself as a *wholesome bearded guy* with *Jutlandic Charm™* and *Fynsk 'hygge'*.
+My name is **Andreas Blanke** and I am a <years-old-span></years-old-span> year-old Danish software engineer living on Amager in Copenhagen. I would typically describe myself as a *wholesome bearded guy* with *Jutlandic Charm™* and *Fynsk 'hygge'*.
  
 ### Academics
 I am currently working on a Master’s Degree in Computer Science at the [IT-University of Copenhagen](http://itu.dk) (ITU). In 2019, I also finished my Bachelor Degree in Software Development from ITU. The reason why I choose an education from ITU was because I wanted a broad software development education that offered insights into all aspects of the software development lifecycle and ITU provided could provide me such a toolbox. At ITU I have chosen to specialize with courses in *Computer Systems Performance*, *Android Development*, *Software Architecture*, *Security* and *Machine Learning*.

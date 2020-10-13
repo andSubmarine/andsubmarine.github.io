@@ -61,7 +61,7 @@ export default {
    */
   content: {
     // $content api will be served on localhost:3000/blanke-tech/content-api
-    apiPrefix: 'content-api'
+    // apiPrefix: 'content-api'
   },
   /* Build configuration
    * See https://nuxtjs.org/api/configuration-build/
@@ -72,7 +72,7 @@ export default {
    * See https://nuxtjs.org/faq/github-pages/#deploying-to-github-pages-for-repository
    */
   router: {
-    base: '/blanke-tech/'
+    // base: '/blanke-tech/'
   },
   /* Font-Awesome
    * See https://www.npmjs.com/package/@nuxtjs/fontawesome

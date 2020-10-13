@@ -1,7 +1,7 @@
 ---
 title: Website Design
 description: 'Developing a website is "easy"!'
-url: "./articles/github-website.png"
+url: "./blob/github-website.png"
 alt: "blanke-tech on Github "
 ---
 
