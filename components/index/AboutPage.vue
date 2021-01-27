@@ -41,13 +41,20 @@ export default class AboutPage extends Vue {
   padding: 4vh 2vw;
   color: white;
   height: 100% ;
-}
 
-#about-content a {
-  color: white;
-  text-decoration: underline;
-  &:hover {
-    color: #b4dab6;
+  & a {
+    color: white;
+    text-decoration: underline;
+    &:hover {
+      color: #b4dab6;
+    }
+  }
+
+  & .nuxt-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }
 
