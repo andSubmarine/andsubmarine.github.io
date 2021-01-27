@@ -19,7 +19,7 @@ export default {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/blanke-tech/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
   /* Environment (global) variables
@@ -73,7 +73,7 @@ export default {
    * See https://nuxtjs.org/faq/github-pages/#deploying-to-github-pages-for-repository
    */
   router: {
-    base: '/blanke-tech/'
+    base: '/'
   },
   hooks: hooks(this),
   /* Font-Awesome

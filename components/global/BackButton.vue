@@ -1,14 +1,14 @@
 <template>
   <nuxt-link id="back-button" :to="route">
-      <b-button pill variant="primary" >
-        <font-awesome-icon icon="arrow-circle-left" /> 
-        Back
-      </b-button>
-    </nuxt-link>
+    <b-button pill variant="primary">
+      <font-awesome-icon icon="arrow-circle-left" />
+      Back
+    </b-button>
+  </nuxt-link>
 </template>
 
 <script lang="ts">
-import {Prop,Component, Vue} from 'nuxt-property-decorator'
+import { Prop, Component, Vue } from 'nuxt-property-decorator'
 
 @Component
 export default class BackButton extends Vue {

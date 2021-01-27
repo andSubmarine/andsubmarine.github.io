@@ -11,7 +11,7 @@
         <hr>
         <b-media>
           <template #aside>
-            <b-img src="/blanke-tech/blob/profile.jpg" blank-color="#ccc" width="64" alt="author profile" />
+            <b-img src="/blob/profile.jpg" blank-color="#ccc" width="64" alt="author profile" />
           </template>
           <p v-if="lastUpdated" class="mb-1"> <em>{{ lastUpdated }}</em> </p>
           <p class="mb-1"> <em>Written by Andreas Blanke</em> </p>
@@ -24,7 +24,7 @@
 </template>
 
 <script lang="ts">
-import { Prop, Component, Vue } from 'nuxt-property-decorator'
+import { Component, Vue } from 'nuxt-property-decorator'
 
 @Component
 export default class Article extends Vue {

@@ -12,7 +12,7 @@
         fluid
         center
         alt="rubber duck"
-        src="/blanke-tech/blob/background-3.jpg"
+        src="/blob/background-3.jpg"
         blank-color="#ccc"
         class="rubber-duck"
       />
