@@ -1,21 +1,33 @@
 <template>
-    <b-row id="about" 
-      class="landing-pages" 
-      align-v="stretch">
-      <b-col>
-        <nuxt-content id="about-content" :document="page"/>
-      </b-col>
-    </b-row>
+  <b-row
+    id="about"
+    class="landing-pages"
+    align-v="stretch"
+  >
+    <b-col cols="12" xl="6">
+      <nuxt-content id="about-content" :document="page" />
+    </b-col>
+    <b-col cols="12" xl="6" class="d-flex justify-content-center align-items-center">
+      <b-img
+        fluid
+        center
+        alt="rubber duck"
+        src="/blanke-tech/blob/background-3.jpg"
+        blank-color="#ccc"
+        class="rubber-duck"
+      />
+    </b-col>
+  </b-row>
 </template>
 
 <script lang="ts">
-import {Component, Vue} from 'nuxt-property-decorator'
+import { Component, Vue } from 'nuxt-property-decorator'
 
 @Component
 export default class AboutPage extends Vue {
   page: any = {};
-  async created() {
-    this.page = await this.$content("about","intro").fetch();
+  async created () {
+    this.page = await this.$content('about', 'intro').fetch()
   }
 }
 </script>
@@ -39,4 +51,8 @@ export default class AboutPage extends Vue {
   }
 }
 
+.rubber-duck {
+  max-width: 80%;
+  margin-bottom: 2rem;
+}
 </style>

@@ -1,35 +1,34 @@
 <template>
   <b-row id="top" class="landing-pages" align-v="stretch">
-      <b-col>
-        <b-button-group id="learn-more">
-          <b-button class="b-learn-more b-green" @click="handleClick(firstCoords)">
-            Who is this guy?
-          </b-button>
-          <b-button class="b-learn-more b-black" @click="handleClick(secondCoords)">
-            What has he done?
-          </b-button>
-        </b-button-group>
-      </b-col>
-    </b-row>
+    <b-col>
+      <b-button-group id="learn-more">
+        <b-button class="b-learn-more b-green" @click="handleClick(firstCoords)">
+          Who is this guy?
+        </b-button>
+        <b-button class="b-learn-more b-black" @click="handleClick(secondCoords)">
+          What has he done?
+        </b-button>
+      </b-button-group>
+    </b-col>
+  </b-row>
 </template>
 
 <script lang="ts">
-import {Coords, coords, scrollToElement} from '@/scripts/Coords';
-import {Component, Vue, Prop} from 'nuxt-property-decorator'
+import { Coords, coords, scrollToElement } from '@/scripts/Coords'
+import { Component, Vue, Prop } from 'nuxt-property-decorator'
 
 @Component
 export default class ImagePage extends Vue {
   @Prop() firstId!: string;
-  @Prop() secondId!: string; 
+  @Prop() secondId!: string;
 
-  get firstCoords(): Coords { return coords(this.firstId); }
+  get firstCoords (): Coords { return coords(this.firstId) }
 
-  get secondCoords(): Coords { return coords(this.secondId); }
+  get secondCoords (): Coords { return coords(this.secondId) }
 
-  handleClick(coords: Coords) {
-    scrollToElement(coords);
+  handleClick (coords: Coords) {
+    scrollToElement(coords)
   }
-  
 }
 </script>
 

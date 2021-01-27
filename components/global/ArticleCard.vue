@@ -1,38 +1,44 @@
 <template>
-    <b-card 
-        no-body
-        text-variant="white"
-        :title="article.title"
-        v-bind:class="{
-          'card-bg-red': index % 4 === 0,
-          'card-bg-blue': index % 4 === 1,
-          'card-bg-green': index % 4 === 2,
-          'card-bg-purple': index % 4 === 3
-        }"
-    >
-      <template v-if="article.url" v-slot:header >
-        <b-card-img-lazy :src="article.url" :alt="article.alt" />
-      </template>
-      <b-card-body v-bind:class="{ 'card-no-img': article.url === undefined } ">
-        <h2 class="card-title">{{article.title}}</h2>
-        <p class="card-text text-truncate">{{article.description}}</p>
-      </b-card-body>
-      <template v-slot:footer>
-        <small>Last updated: {{updatedAt}}</small>
-      </template>
-    </b-card>
+  <b-card
+    no-body
+    text-variant="white"
+    :title="article.title"
+    :class="{
+      'card-bg-red': index % 4 === 0,
+      'card-bg-blue': index % 4 === 1,
+      'card-bg-green': index % 4 === 2,
+      'card-bg-purple': index % 4 === 3
+    }"
+  >
+    <template v-if="article.url" v-slot:header>
+      <b-card-img-lazy :src="article.url" :alt="article.alt" />
+    </template>
+    <b-card-body :class="{ 'card-no-img': article.url === undefined } ">
+      <h2 class="card-title">
+        {{ article.title }}
+      </h2>
+      <p class="card-text text-truncate">
+        {{ article.description }}
+      </p>
+    </b-card-body>
+    <template v-slot:footer>
+      <small>Published: {{ publishedAt }}</small>
+    </template>
+  </b-card>
 </template>
 
 <script lang="ts">
-import {Prop,Component, Vue} from 'nuxt-property-decorator';
+import { Prop, Component, Vue } from 'nuxt-property-decorator'
 
 @Component
 export default class ArticleCard extends Vue {
   @Prop() article: any;
   @Prop({ default: 0 }) index!: number;
 
-  get updatedAt() {
-    return new Date(this.article.updatedAt).toLocaleString("en-GB");
+  get publishedAt () {
+    return new Date(this.article.published).toLocaleString('en-GB', {
+      weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit'
+    })
   }
 }
 </script>

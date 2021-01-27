@@ -1,25 +1,34 @@
 <template>
-  <b-col id="articles" 
-    class="landing-pages d-flex flex-column" 
-    align-v="stretch">
+  <b-col
+    id="articles"
+    class="landing-pages d-flex flex-column"
+    align-v="stretch"
+  >
     <b-row id="projects-header" class="w-100">
-      <h1 class="w-100 text-center">// projects & articles</h1>
+      <h1 class="w-100 text-center">
+        // projects & articles
+      </h1>
     </b-row>
     <b-row id="card-group">
-      <b-col cols="12" sm="6" lg="4"
-        v-for="(article, index) in articles" 
-        v-bind:key="article.slug"
-        class="article-card">
+      <b-col
+        v-for="(article, index) in articles"
+        :key="article.slug"
+        cols="12"
+        sm="6"
+        lg="4"
+        class="article-card"
+      >
         <nuxt-link
           class="article-link"
           :to="{ name: 'articles-id', params: {id: article.slug}}"
         >
-          <ArticleCard :article="article" :index="index"/>
+          <ArticleCard :article="article" :index="index" />
         </nuxt-link>
       </b-col>
     </b-row>
     <b-row id="more">
-      <a v-if="hasMoreArticles" 
+      <a
+        v-if="hasMoreArticles"
         id="load-more"
         href="javascript:void(0)"
         @click="fetchArticles()"
@@ -35,7 +44,7 @@
 </template>
 
 <script lang="ts">
-import {Component, Vue} from 'nuxt-property-decorator'
+import { Component, Vue } from 'nuxt-property-decorator'
 
 @Component
 export default class ProjectPage extends Vue {
@@ -43,20 +52,20 @@ export default class ProjectPage extends Vue {
   index = 0;
   hasMoreArticles = true;
 
-  async fetchArticles(n: number = 2) {
-    const nArticles = this.index + n;
-    const moarticles = await this.$content("articles").sortBy("updatedAt","desc").limit(nArticles).fetch();
+  async fetchArticles (n: number = 2) {
+    const nArticles = this.index + n
+    const moarticles = await this.$content('articles').sortBy('updatedAt', 'desc').limit(nArticles).fetch()
     if (moarticles.length < nArticles) {
-      this.hasMoreArticles = false;
-      this.index = moarticles.length;
+      this.hasMoreArticles = false
+      this.index = moarticles.length
     } else {
-      this.index += n;
+      this.index += n
     }
-    this.articles = moarticles;
+    this.articles = moarticles
   }
 
-  async created() {
-    await this.fetchArticles(4);
+  async created () {
+    await this.fetchArticles(4)
   }
 }
 </script>
