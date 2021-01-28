@@ -4,6 +4,7 @@ description: 'Developing a website is "easy"!'
 url: "./blob/github-website.png"
 alt: "blanke-tech on Github "
 published: "2020-10-13T19:00:00Z"
+tags: ["web", "dev", "design", "hosting"]
 ---
 
 Today, there exists a large variety of tools, frameworks and libraries for developing a website. You can use [Squarespace](https://www.squarespace.com/), [Wiz](https://www.wix.com/), [WordPress](https://wordpress.com/) or another website builder if you want to develop a site quickly. But then you are constrained by the builder's features and you become an expert in using the site rather than in how websites are built. You could build your website from scratch using HTML5, CSS3, JavaScript and libraries such as [Bootstrap](https://getbootstrap.com/) and [jQuery](https://jquery.com/) - but that often requires a lot of work to build something you'll be happy with. So what then?
@@ -25,11 +26,9 @@ In fact, adding a few packages such as [BootstrapVue](https://bootstrap-vue.org/
 ## Hosting
 But what about hosting? Initially, I thought about creating and replacing the Droplet I had hosted on DigitalOcean, but then I discovered that GitHub offers hosting of static websites through [GitHub Pages](https://pages.github.com/) and that Nuxt offers [static generation](https://nuxtjs.org/blog/going-full-static/) of my website. Everything seemed to fit together nicely! 
 
-However, deploying the site would quickly become annoying. How could that be resolved? Well, what about building a deployment pipeline using [Travis CI](https://travis-ci.org/)? Now my website can be deployed with a **single push to the master branch** as seen in the image below.
+However, deploying the site would quickly become annoying. How could that be resolved? Well, what about building a deployment pipeline using [Travis CI](https://travis-ci.org/)? Now my website can be deployed with a **single push to the master branch** as seen in the image below. Since all articles (such as this one) is written in Markdown (possible due to Nuxt Content) then I can easily create, edit or delete articles from the site - even directly from GitHub's editor!
 
 <img alt="Deployment Pipeline" src="./blob/deployment-pipeline.png" class="img-fluid">
-
-Since all articles (such as this one) is written in Markdown (possible due to Nuxt Content) then I can easily create, edit or delete articles from the site - even directly from GitHub's editor!
 
 ## Design
 Full disclaimer - I am by no means a designer - but *even a developer needs to have some idea about design*. I think that all design  begin with a purpose. For this website that purpose was that I wanted a place where I can describe myself and my work. Therefore, the design should focus on these two aspects. This can be seen on the homepage which is divided into two sections: an introductionary image and about section and a list of projects & articles. 
@@ -42,11 +41,14 @@ Bootstrap uses a twelve-column grid-based system. What that means is that the wi
 
 Designing mobile-first becomes relevant here since it means that we initially design the site as if we're only developing the site for a phone. Then we try to expand the screen width and change elements of the design in order to use the space the most effectively. An example of this is the so-called `ArticleCard` used on the homepage for articles such as this one. These were designed to take up the entire screen width, i.e. `col-12`. However, when scaling up to a larger width then the design started looking weird. Thus, the element first changes into a `col-6` for tablet-sized screens and then further more to a `col-4` on larger desktop screens. 
 
-Finally, I would like to remark that I usually use [Adobe Color](https://color.adobe.com/create/color-wheel) to generate a color palette. In the case of this website, I decided to built a color palette from an image. More specifically, a collage I once made for my previous iteration of my website. The resulting color palette can be seen below:
+Finally, I would like to remark that I usually use [Adobe Color](https://color.adobe.com/create/color-wheel) to generate a color palette. In the case of this website, I decided to built a color palette from an image. More specifically, a collage I once made for my previous iteration of my website. The resulting color palette can be seen below. So if you ask me *"Why did you choose that particular color of green?"* then I'll simply answer *"Because I once had a raincoat in that color."*. It might seem silly, but the colors do seem to fit quite nicely.
 
 <img src="./blob/color-pallete.png" alt="Color palette" class="img-fluid" />
 
-So if you ask me *"Why did you choose that particular color of green?"* then I'll simply answer *"Because I once had a raincoat in that color."*. It might seem silly, but the colors do seem to fit quite nicely.
 
 ## Final thoughts
-I hope that whoever reads this found it somewhat interesting. As with much other software projects, there have been multiple development iterations that resulted in a few prototypes. Those mentioned in the history are only those that actually were released due to some level of completion. That also means that this site is a product of an iteration and might change and evolve over time. Perhaps in the future this emoji (<random-icon :icons="['🙈','🙊','🙉']"></random-icon>) might be something different next time you visit? 
+I hope that whoever reads this found it somewhat interesting. As with much other software projects, there have been multiple development iterations that resulted in a few prototypes. Those mentioned in the history are only those that actually were released due to some level of completion. That also means that this site is a product of an iteration and might change and evolve over time. 
+
+Perhaps this emoji (<random-icon :icons="['🙈','🙊','🙉']"></random-icon>) might be something different next time you visit? 
+
+See the code for the website on GitHub here: https://github.com/andSubmarine/andsubmarine.github.io

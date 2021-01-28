@@ -13,10 +13,15 @@
           <template #aside>
             <b-img src="/blob/profile.jpg" blank-color="#ccc" width="64" alt="author profile" />
           </template>
-          <p v-if="lastUpdated" class="mb-1"> <em>{{ lastUpdated }}</em> </p>
-          <p class="mb-1"> <em>Written by Andreas Blanke</em> </p>
-          <p class="mb-1"> <SocialMedia type="linkedin" /> </p>
-          <p class="mb-1"> <SocialMedia type="github" /> </p>
+          <p class="mb-1">
+            <em>Written by Andreas Blanke. <span v-if="lastUpdated">{{ lastUpdated }}</span></em>
+          </p>
+          <p class="mb-1">
+            <SocialMedia type="linkedin" />
+          </p>
+          <p class="mb-1">
+            <SocialMedia type="github" />
+          </p>
         </b-media>
       </div>
     </div>
@@ -36,6 +41,11 @@ export default class Article extends Vue {
         meta: [
           {
             hid: this.page.slug
+          },
+          {
+            hid: 'description',
+            name: 'description',
+            content: (this.page.description) ? this.page.description : 'description'
           }
         ]
       }

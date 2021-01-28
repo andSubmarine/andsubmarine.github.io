@@ -20,6 +20,12 @@
       <p class="card-text text-truncate">
         {{ article.description }}
       </p>
+      <div class="d-flex justify-content-between">
+        <div>Tags:</div>
+        <div v-for="tag in tags" :key="tag" class="tag">
+          {{ tag }}
+        </div>
+      </div>
     </b-card-body>
     <template v-slot:footer>
       <small>Published: {{ publishedAt }}</small>
@@ -39,6 +45,12 @@ export default class ArticleCard extends Vue {
     return new Date(this.article.published).toLocaleString('en-GB', {
       weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit'
     })
+  }
+
+  get tags () {
+    if (this.article.tags) {
+      return this.article.tags
+    } else { return [] }
   }
 }
 </script>
@@ -107,8 +119,16 @@ export default class ArticleCard extends Vue {
 }
 
 .card-text {
-  min-height: 14vh;
-  max-height: 34vh;
+  min-height: 4vh;
+  max-height: 6vh;
+}
+
+.tag {
+  background-color: black;
+  color: white;
+  border-radius: .5rem;
+  padding: .05rem .4rem;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
 }
 
 </style>
