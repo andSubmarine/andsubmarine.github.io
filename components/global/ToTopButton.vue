@@ -1,39 +1,43 @@
 <template>
-  <div v-if="shouldShowTopButton" 
-      id="to-top-button">
-    <b-button 
-      pill variant="secondary" 
-      @click="scrollTo">
-      <font-awesome-icon icon="arrow-circle-up" /> 
+  <div
+    v-if="shouldShowTopButton"
+    id="to-top-button"
+  >
+    <b-button
+      pill
+      variant="secondary"
+      @click="scrollTo"
+    >
+      <font-awesome-icon icon="arrow-circle-up" />
       Top
     </b-button>
   </div>
 </template>
 
 <script lang="ts">
-import {Coords, coords, scrollToElement} from '@/scripts/Coords';
-import {Prop,Component, Vue} from 'nuxt-property-decorator'
+import { Coords, coords, scrollToElement } from '@/scripts/Coords'
+import { Prop, Component, Vue } from 'nuxt-property-decorator'
 
 @Component
 export default class ToTopButton extends Vue {
   shouldShowTopButton = false;
 
-  get route() {
-    return "/blanke-tech"+this.$route.path+"#";
+  get route () {
+    return '/' + this.$route.path + '#'
   }
 
-  mounted() {
+  mounted () {
     window.onscroll = () => {
-        this.shouldShowTopButton = window.pageYOffset >= document.documentElement.clientHeight / 2;
-    } 
+      this.shouldShowTopButton = window.pageYOffset >= document.documentElement.clientHeight / 2
+    }
   }
 
-  scrollTo() {
+  scrollTo () {
     window.scrollTo({
       top: 0,
       left: 0,
-      behavior: "smooth"
-    });
+      behavior: 'smooth'
+    })
   }
 }
 </script>

@@ -61,7 +61,7 @@ export default {
    * See https://content.nuxtjs.org/configuration
    */
   content: {
-    // $content api will be served on localhost:3000/blanke-tech/content-api
+    // $content api will be served on localhost:3000/content-api
     apiPrefix: 'content-api'
   },
   /* Build configuration

@@ -2,7 +2,7 @@ import redirectRootToPortal from './route-redirect'
 
 export default nuxtConfig => {
   const router = Reflect.has(nuxtConfig, 'router') ? nuxtConfig.router : {}
-  const base = Reflect.has(router, 'base') ? router.base : '/blanke-tech'
+  const base = Reflect.has(router, 'base') ? router.base : '/'
 
   return {
     /**
