@@ -5,7 +5,7 @@
     align-v="stretch"
   >
     <b-col cols="12" xl="6">
-      <nuxt-content id="about-content" :document="page" />
+      <nuxt-content id="about-content" :document="page" class="d-flex flex-column justify-content-center align-items-center" />
     </b-col>
     <b-col cols="12" xl="6" class="d-flex justify-content-center align-items-center">
       <b-img

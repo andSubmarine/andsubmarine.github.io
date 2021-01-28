@@ -3,7 +3,7 @@ title: Website Design
 description: 'Developing a website is "easy"!'
 url: "./blob/github-website.png"
 alt: "blanke-tech on Github "
-published: "2020-10-13T19:00:00Z"
+published: "2020-10-14T00:00:00Z"
 tags: ["web", "dev", "design", "hosting"]
 ---
 
