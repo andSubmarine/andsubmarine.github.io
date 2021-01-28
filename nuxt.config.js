@@ -1,4 +1,4 @@
-import hooks from "./hooks"
+import hooks from './hooks'
 export default {
   /* Nuxt rendering mode
    * See https://nuxtjs.org/api/configuration-mode
@@ -19,7 +19,7 @@ export default {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: './favicon.ico' }
     ]
   },
   /* Environment (global) variables
@@ -42,7 +42,7 @@ export default {
   /* Nuxt.js dev-modules */
   buildModules: [
     '@nuxt/typescript-build',
-    '@nuxtjs/fontawesome',
+    '@nuxtjs/fontawesome'
   ],
   /* Nuxt.js modules */
   modules: [
@@ -51,7 +51,7 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     // Doc: https://github.com/nuxt/content
-    '@nuxt/content',
+    '@nuxt/content'
   ],
   /* Axios module configuration
    * See https://axios.nuxtjs.org/options
