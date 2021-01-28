@@ -43,7 +43,8 @@ export default {
   /* Nuxt.js dev-modules */
   buildModules: [
     '@nuxt/typescript-build',
-    '@nuxtjs/fontawesome'
+    '@nuxtjs/fontawesome',
+    '@nuxtjs/google-analytics'
   ],
   /* Nuxt.js modules */
   modules: [
@@ -85,5 +86,11 @@ export default {
       solid: true,
       brands: true
     }
+  },
+  /* Google Analytics
+   * See https://google-analytics.nuxtjs.org/
+   */
+  googleAnalytics: {
+    id: 'G-8LTCQ3XGF1'
   }
 }
