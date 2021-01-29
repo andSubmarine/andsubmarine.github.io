@@ -50,7 +50,7 @@ export default class ImagePage extends Vue {
   min-width: 80vw;
   margin: .5rem .5rem !important;
   padding: .5rem .5rem !important;
-  font-size: 1.5rem;
+  font-size: 4vw;
 }
 .b-green {
   background-color: #26732B;
@@ -72,11 +72,20 @@ export default class ImagePage extends Vue {
   }
   .b-learn-more {
     min-width: 30vw;
+    font-size: 3.5vw;
   }
 }
 
 // @media (min-width: 768px) {}
-// @media (min-width: 992px) {}
-// @media (min-width: 1200px) {}
+@media (min-width: 992px) {
+  .b-learn-more {
+    font-size: 3vw;
+  }
+}
+@media (min-width: 1200px) {
+  .b-learn-more {
+    font-size: 2vw;
+  }
+}
 // @media (min-width: 1400px) {}
 </style>

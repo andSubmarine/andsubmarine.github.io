@@ -41,6 +41,7 @@ export default class AboutPage extends Vue {
   padding: 4vh 2vw;
   color: white;
   height: 100% ;
+  font-size: 3vw;
 
   & a {
     color: white;
@@ -61,5 +62,23 @@ export default class AboutPage extends Vue {
 .rubber-duck {
   max-width: 80%;
   margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  #about-content {
+    font-size: 2vw;
+  }
+}
+
+@media (min-width: 992px) {
+  #about-content {
+    font-size: 1.5vw;
+  }
+}
+
+@media (min-width: 1400px) {
+  #about-content {
+    font-size: 1vw;
+  }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <b-container v-if="page" tag="article">
+  <b-container v-if="page" tag="article" class="article-page">
     <ToTopButton />
     <BackButton route="/" />
     <div class="row">
@@ -71,7 +71,7 @@ export default class Article extends Vue {
 </script>
 
 <style lang="scss">
-article {
+.article-page {
   background-color: #F2EEEB;
   min-height: 100vh;
 }

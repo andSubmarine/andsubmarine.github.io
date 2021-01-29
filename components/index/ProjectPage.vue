@@ -9,23 +9,7 @@
         // projects & articles
       </h1>
     </b-row>
-    <b-row id="card-group">
-      <b-col
-        v-for="(article, index) in articles"
-        :key="article.slug"
-        cols="12"
-        sm="6"
-        lg="4"
-        class="article-card"
-      >
-        <nuxt-link
-          class="article-link"
-          :to="{ name: 'articles-id', params: {id: article.slug}}"
-        >
-          <ArticleCard :article="article" :index="index" />
-        </nuxt-link>
-      </b-col>
-    </b-row>
+    <ArticleContainer :articles="articles" />
     <b-row id="more">
       <a
         v-if="hasMoreArticles"
@@ -45,7 +29,6 @@
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
-import Article from '~/pages/articles/_id/index.vue';
 
 @Component
 export default class ProjectPage extends Vue {
@@ -53,7 +36,7 @@ export default class ProjectPage extends Vue {
   index = 0;
   hasMoreArticles = true;
 
-  async fetchArticles (n: number = 2) {
+  async fetchArticles (n: number = 6) {
     const nArticles = this.index + n
     const result = await this.$content('articles')
       .sortBy('createdAt', 'desc')
@@ -73,7 +56,7 @@ export default class ProjectPage extends Vue {
   }
 
   async created () {
-    await this.fetchArticles(4)
+    await this.fetchArticles(6)
   }
 }
 </script>
@@ -82,29 +65,33 @@ export default class ProjectPage extends Vue {
 #articles {
   background-color: #0D0D0D;
 }
-#projects-header {
+#projects-header, #more {
   margin: 3vh;
-  color: #fff;
   font-family: monospace;
-}
-#card-group {
-  min-width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-}
-#card-group > [class*='col-'] {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 2rem;
 }
 #load-more {
   text-decoration: underline;
 }
-#load-more, #no-more {
+#projects-header h1, #load-more, #no-more {
   color: #fff;
-  font-size: 3vw;
+  font-size: 5vw;
 }
-#more {
-  margin-bottom: 4%;
+
+@media (min-width: 768px) {
+  #projects-header h1, #load-more, #no-more {
+    font-size: 4vw;
+  }
+}
+
+@media (min-width: 992px) {
+  #projects-header h1, #load-more, #no-more {
+    font-size: 3vw;
+  }
+}
+
+@media (min-width: 1400px) {
+  #projects-header h1, #load-more, #no-more {
+    font-size: 2vw;
+  }
 }
 </style>
