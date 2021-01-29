@@ -74,16 +74,18 @@ export default class ArticleContainer extends Vue {
         }
         & .card-footer {
             font-size: 3vw;
+            .tag {
+                background-color: black;
+                color: white;
+                border-radius: .5rem;
+                padding: .05rem .4rem;
+                box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+                & :hover {
+                    color: white !important;
+                }
+            }
         }
     }
-}
-
-.tag {
-  background-color: black;
-  color: white;
-  border-radius: .5rem;
-  padding: .05rem .4rem;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
 }
 
 @media (min-width: 768px) {
