@@ -7,7 +7,7 @@ export default {
   /* Nuxt target
    * See https://nuxtjs.org/api/configuration-target
    */
-  target: 'static',
+  target: 'server',
   fallback: true,
   /* Headers of the page
    * See https://nuxtjs.org/api/configuration-head
