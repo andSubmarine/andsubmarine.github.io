@@ -71,6 +71,12 @@ export default {
    */
   build: {
   },
+  /* Generate configuration
+   * See https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-generate
+   */
+  generate: {
+    routes: ['/articles/everything-ssd', '/articles/website-design']
+  },
   /* Router config
    * See https://nuxtjs.org/faq/github-pages/#deploying-to-github-pages-for-repository
    */
