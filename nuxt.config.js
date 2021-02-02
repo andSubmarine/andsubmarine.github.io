@@ -76,6 +76,7 @@ export default {
    * See also: https://content.nuxtjs.org/advanced#static-site-generation
    */
   generate: {
+    fallback: '404.html',
     async routes () {
       const { $content } = require('@nuxt/content')
       const files = await $content({ deep: true }).only(['path']).fetch()
