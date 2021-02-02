@@ -1,11 +1,13 @@
 <template>
-  <Nuxt />
+  <Nuxt class="default-layout" />
 </template>
 
 <style lang="scss">
 body {
-  background-color:#D95F5F;
   min-height: 100%;
+}
+.default-layout {
+  background-color:#D95F5F;
 }
 .landing-pages {
   margin: 0 auto;

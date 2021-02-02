@@ -73,9 +73,15 @@ export default {
   },
   /* Generate configuration
    * See https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-generate
+   * See also: https://content.nuxtjs.org/advanced#static-site-generation
    */
   generate: {
-    routes: ['/articles/everything-ssd', '/articles/website-design']
+    async routes () {
+      const { $content } = require('@nuxt/content')
+      const files = await $content({ deep: true }).only(['path']).fetch()
+
+      return files.map(file => file.path === '/index' || file.path === '/about/intro' ? '/' : file.path)
+    }
   },
   /* Router config
    * See https://nuxtjs.org/faq/github-pages/#deploying-to-github-pages-for-repository

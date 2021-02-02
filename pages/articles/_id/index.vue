@@ -1,31 +1,33 @@
 <template>
-  <b-container v-if="page" tag="article" class="article-page">
-    <ToTopButton />
-    <BackButton route="/" />
-    <div class="row">
-      <b-img v-if="page.url" id="article-img" :src="page.url" fluid :alt="page.alt" />
-      <div id="article-body">
-        <h1>{{ page.title }}</h1>
-        <em id="description">{{ page.description }}</em>
-        <nuxt-content id="article-content" :document="page" />
-        <hr>
-        <b-media>
-          <template #aside>
-            <b-img src="/blob/profile.jpg" blank-color="#ccc" width="64" alt="author profile" />
-          </template>
-          <p class="mb-1">
-            <em>Written by Andreas Blanke. <span v-if="lastUpdated">{{ lastUpdated }}</span></em>
-          </p>
-          <p class="mb-1">
-            <SocialMedia type="linkedin" />
-          </p>
-          <p class="mb-1">
-            <SocialMedia type="github" />
-          </p>
-        </b-media>
+  <div>
+    <b-container v-if="page" tag="article" class="article-page">
+      <ToTopButton />
+      <BackButton route="/" />
+      <div class="row">
+        <b-img v-if="page.url" id="article-img" :src="page.url" fluid :alt="page.alt" />
+        <div id="article-body">
+          <h1>{{ page.title }}</h1>
+          <em id="description">{{ page.description }}</em>
+          <nuxt-content id="article-content" :document="page" />
+          <hr>
+          <b-media>
+            <template #aside>
+              <b-img src="/blob/profile.jpg" blank-color="#ccc" width="64" alt="author profile" />
+            </template>
+            <p class="mb-1">
+              <em>Written by Andreas Blanke. <span v-if="lastUpdated">{{ lastUpdated }}</span></em>
+            </p>
+            <p class="mb-1">
+              <SocialMedia type="linkedin" />
+            </p>
+            <p class="mb-1">
+              <SocialMedia type="github" />
+            </p>
+          </b-media>
+        </div>
       </div>
-    </div>
-  </b-container>
+    </b-container>
+  </div>
 </template>
 
 <script lang="ts">
