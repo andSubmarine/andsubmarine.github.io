@@ -34,8 +34,7 @@ export default {
   /* Plugins to load before mounting the App
    * https://nuxtjs.org/guide/plugins
    */
-  plugins: [
-  ],
+  plugins: [],
   /* Auto import components
    * See https://nuxtjs.org/api/configuration-components
    */
@@ -43,8 +42,7 @@ export default {
   /* Nuxt.js dev-modules */
   buildModules: [
     '@nuxt/typescript-build',
-    '@nuxtjs/fontawesome',
-    '@nuxtjs/google-analytics'
+    '@nuxtjs/fontawesome'
   ],
   /* Nuxt.js modules */
   modules: [
@@ -99,11 +97,5 @@ export default {
       solid: true,
       brands: true
     }
-  },
-  /* Google Analytics
-   * See https://google-analytics.nuxtjs.org/
-   */
-  googleAnalytics: {
-    id: 'G-8LTCQ3XGF1'
   }
 }

@@ -59,6 +59,7 @@ export default class ArticleContainer extends Vue {
 <style lang="scss">
 .article-card {
     margin: 1rem;
+    width: 80%;
     text-decoration: none !important;
     color: black;
     & :hover {
@@ -89,7 +90,9 @@ export default class ArticleContainer extends Vue {
 }
 
 @media (min-width: 768px) {
-    .article-card .card {
+    .article-card {
+      width: 50%;
+      & .card {
         & .card-title {
             font-size: 4vw;
         }
@@ -99,11 +102,14 @@ export default class ArticleContainer extends Vue {
         & .card-footer {
             font-size: 2vw;
         }
+      }
     }
 }
 
 @media (min-width: 992px) {
-    .article-card .card {
+    .article-card {
+      width: 40%;
+      & .card {
         & .card-title {
             font-size: 3vw;
         }
@@ -113,11 +119,14 @@ export default class ArticleContainer extends Vue {
         & .card-footer {
             font-size: 1.5vw;
         }
+      }
     }
  }
 
  @media (min-width: 1400px) {
-    .article-card .card {
+    .article-card {
+      width: 30%;
+      & .card {
         & .card-title {
             font-size: 2.5vw;
         }
@@ -127,6 +136,7 @@ export default class ArticleContainer extends Vue {
         & .card-footer {
             font-size: 1vw;
         }
+      }
     }
  }
  @media (min-width: 2000px) {
