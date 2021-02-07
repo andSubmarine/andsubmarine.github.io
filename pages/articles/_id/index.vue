@@ -93,7 +93,6 @@ export default class Article extends Vue {
   width: 100%;
 }
 #article-img {
-  max-height: 50vh;
   object-fit: cover;
   object-position: 0 0;
 }

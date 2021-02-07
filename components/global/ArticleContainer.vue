@@ -1,13 +1,14 @@
 <template>
   <b-card-group
     v-if="articles && articles.length > 0"
-    class="d-flex justify-content-around align-items-start align-content-around flex-wrap"
+    class="card-container"
   >
     <nuxt-link
       v-for="article in articles"
       :key="article.slug"
       :to="{ name: 'articles-id', params: {id: article.slug}}"
       class="article-card"
+      aria-label="read article"
     >
       <b-card
         :title="article.title"
@@ -57,99 +58,122 @@ export default class ArticleContainer extends Vue {
 </script>
 
 <style lang="scss">
+.card-container {
+  min-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
 .article-card {
-    margin: 1rem;
-    width: 80%;
-    text-decoration: none !important;
-    color: black;
-    & :hover {
-        color: black;
-    }
+  flex: 1 0 100%;
+  box-sizing: border-box;
+  margin: 1rem .25em;
+  text-decoration: none !important;
+  color: black;
+  & :hover {
+      color: black;
+  }
 
-    & .card {
-        & .card-title {
-            font-size: 5vw;
-        }
-        & .card-body {
-            font-size: 4vw;
-        }
-        & .card-footer {
-            font-size: 3vw;
-            .tag {
-                background-color: black;
-                color: white;
-                border-radius: .5rem;
-                padding: .05rem .4rem;
-                box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
-                & :hover {
-                    color: white !important;
-                }
-            }
-        }
+  & .card {
+    height: 100%;
+    & .card-img-top {
+      height: 45%;
     }
+    & .card-title {
+      font-size: 5vw;
+    }
+    & .card-body {
+      font-size: 4vw;
+    }
+    & .card-footer {
+      font-size: 3vw;
+      .tag {
+        font-size: 2.5vw;
+        background-color: black;
+        color: white;
+        border-radius: .5rem;
+        padding: .05rem .4rem;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+        & :hover {
+            color: white !important;
+        }
+      }
+    }
+  }
 }
 
 @media (min-width: 768px) {
-    .article-card {
-      width: 50%;
-      & .card {
-        & .card-title {
-            font-size: 4vw;
-        }
-        & .card-body {
-            font-size: 3vw;
-        }
-        & .card-footer {
-            font-size: 2vw;
+  .article-card {
+    max-width: calc(50% -  1em);
+    & .card {
+      & .card-title {
+        font-size: 4vw;
+      }
+      & .card-body {
+        font-size: 3vw;
+      }
+      & .card-footer {
+        font-size: 2vw;
+        .tag {
+          font-size: 1.5vw;
         }
       }
     }
+  }
 }
 
 @media (min-width: 992px) {
-    .article-card {
-      width: 40%;
-      & .card {
-        & .card-title {
-            font-size: 3vw;
-        }
-        & .card-body {
-            font-size: 2vw;
-        }
-        & .card-footer {
-            font-size: 1.5vw;
+  .article-card {
+    max-width: calc(32.4%);
+    & .card {
+      & .card-title {
+        font-size: 3vw;
+      }
+      & .card-body {
+        font-size: 2vw;
+      }
+      & .card-footer {
+        font-size: 1.5vw;
+        .tag {
+          font-size: 1.2vw;
         }
       }
     }
+  }
  }
 
- @media (min-width: 1400px) {
-    .article-card {
-      width: 30%;
-      & .card {
-        & .card-title {
-            font-size: 2.5vw;
-        }
-        & .card-body {
-            font-size: 1.5vw;
-        }
-        & .card-footer {
-            font-size: 1vw;
+@media (min-width: 1400px) {
+  .article-card {
+    max-width: calc(25% - 1em);
+    & .card {
+      & .card-title {
+        font-size: 2.5vw;
+      }
+      & .card-body {
+        font-size: 1.5vw;
+      }
+      & .card-footer {
+        font-size: 1vw;
+        .tag {
+          font-size: .8vw;
         }
       }
     }
+  }
  }
- @media (min-width: 2000px) {
-    .article-card .card {
-        & .card-title {
-            font-size: 2vw;
-        }
-        & .card-body {
-            font-size: 1vw;
-        }
-        & .card-footer {
-            font-size: 0.5vw;
-        }
+@media (min-width: 2000px) {
+  .article-card .card {
+    & .card-title {
+      font-size: 2vw;
     }
+    & .card-body {
+      font-size: 1vw;
+    }
+    & .card-footer {
+      font-size: .8vw;
+      .tag {
+        font-size: .8vw;
+      }
+    }
+  }
  }
 </style>
