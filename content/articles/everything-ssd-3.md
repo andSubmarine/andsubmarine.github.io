@@ -3,7 +3,7 @@ title: Everything SSD - Part 3
 description: 'Flash chips and flash devices'
 url: "./blob/ssd-device.png"
 alt: "ssd overview"
-published: "2021-02-21T00:00:00Z"
+published: "2021-03-08T00:00:00Z"
 tags: ["ssd", "benchmarking", "data", "systems"]
 ---
 
