@@ -3,7 +3,7 @@ title: Everything SSD - Part 2
 description: 'A Network of Storage'
 url: "./blob/pcie-topology.svg"
 alt: "ssd overview"
-published: "2021-02-16T00:00:00Z"
+published: "2021-02-22T00:00:00Z"
 tags: ["ssd", "nvme", "pci", "os"]
 ---
 
