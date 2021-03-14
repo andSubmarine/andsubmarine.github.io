@@ -6,24 +6,24 @@ alt: "ssd overview"
 published: "2021-03-15T00:00:00Z"
 tags: ["ssd", "benchmarking", "data", "systems"]
 ---
-
-# What are flash chips?
-...
-
-## Building blocks
-...
-
-## Operation
-...
+In the last few articles, I have described concepts that help explain what a SSD storage device is and its function in computer systems. The purpose of this article is to go into more depth about what a SSD storage device actually consists of and how it works. 
 
 # What is a flash device?
-...
+As mentioned in the first article of this series, <nuxt-link to="/articles/everything-ssd-1">Everything SSD - Part 1: What's the memory hierarchy?</nuxt-link>, SSD devices typically store data in flash chips. That's why SSDs are also sometimes called **flash devices**.
 
-## The Flash Translation Layer
-...
+On the cover image of this article, you can see a diagram of a typical SSD device illustrating some of the common building blocks. In the next few sections I will go over and explain these. Note that the diagram is a abstraction and thus have taken some creative liberties such as simplifying the internel flash controller into three components: the flash translation layer (FTL), a processor and a buffer manager. Two other key components are flash chips and the host interface of the flash device. Before explaining what flash chips are then lets take a closer look of the host interface and use the concepts introduced in the last article.
 
-## Why does a flash devices not behave as flash chips?
-...
+## The Host Interface
+A SSD without a host system is quite useless as no data would be stored or retrieved from the device. Therefore all SSD devices expose some type of interface to allow externel systems to use the device for storage. In the last article, <nuxt-link to="/articles/everything-ssd-2">Everything SSD - Part 2: A Network of Storage</nuxt-link>, I described NVMe as a protocol that is designed to work on the PCIe topology. That makes NVMe an ideal solution as protocol for interacting with SSD devices. However, not all SSD devices have a host interface that supports the NVMe protocol and may in fact be using the more common SATA protocol. **You might assume that the form factor (such as M.2) is linked to which protocol is being used, but that may not be the case.** For instance, a 2.5-inch SSD (which looks and uses the same interconnect as HDDs) might support NVMe and may even use something like a M.2 SSD inside the casing itself. Yeah, you read that right: **SSDs that look like the ones you bought 15 years ago before the advent of NVMe may actually just hide a flash device in another form factor within the casing of your SSD**. Note: I don't recommend that you actually open up the casing of your SSD device - you can look up most of this information online. Another example is a SATA-based M.2 SSD which likely will underperform compared to a another M.2 SSD that supports NVMe. So why does the host interface matter? Because it can help explain the limits you might see on performance from your device.
 
-# Conclusion
-...
+## What are flash chips?
+Perhaps the most essential building blocks of flash devices are flash chips which stores the ones and zeros of whatever data you place on the device. **A flash chip is a complex assembly of a huge number of flash cells, which are programmed in pages and organized in blocks across several planes**. These are also illustrated on the diagram on top of the page. We will get back to these abstractions as soon as we take a closer look at the flash chips themselves. 
+
+There exists several different types of flash chips, but the most regular ones are NAND flash chips. NAND stands for NOT-AND which is a typical logic gate which produce a negative or false output only if all its inputs are true. The cells in the flash chips use a type of floating-gate transitors which for NAND is placed in serial to store data for long periods of time. Cells start in a state called logical 1 - but can be programmed into the state of logical 0. You might also recognize these as "bits". A collection of connected cells are called "strings" and vary in size between 32 to 128 cells. Both programming and reading the state of cells occur at the granurity of "pages" which is typically between 4 KiB and 16 KiB in size. In order to reset the state back to logical 1 then an "erase" is necessary which occur at the granularity of "blocks". Consider these blocks as collections of pages. Multiple blocks are grouped into planes which allow parallel operations. A flash chip might contain several planes and a flash devices might contain many chips.
+
+The amount of information stored in each cell also vary depending on levels of the cell. Think of the levels of a cell as the level of charge required to determine the state of the cell. In a single-level cell (SLC) device, each cell stores only one bit of information. It is however also possible to store more bits per cell by stacking cells - these are called multi-level cells (MLC) - alghough MLC might also refer to 2-bits per cell to differentiate it from newer cells that store 3-bits per cell (TLC) or 4-bits per cell (QLC). You might think "Oh I get it so we'd prefer more bits per cell?" - however this depends entirely on what you want to use it for. Over time the cells degrade until the determining factor for the levels becomes unstable. So if you want a longer lifespan from your flash cells then you'd want single-layer cells and as you increase the amount of levels and amount of bits to store data within then you also degrade the cells lifespan.
+
+Hopefully after reading this you have gained some understanding about how data is stored in flash chips. The above description doesn't even begin to cover other types of flash chips such as those build with NOR gates instead of NAND. Neither do I cover Vertical NAND (V-NAND) or 3D NAND where memory cells are stacked with the help of charge trap flash architecture. Another entirely different flash type is called 3D XPoint (pronounced 3D Cross Point) and although details regarding this type is still closely guarded then it is speculated to use the charge in between the cells in order to reach even greater heights in terms of performance.
+
+## Why does a flash devices not behave like flash chips?
+Now that you know how flash cells and flash chips works then you might think that you also know how flash devices work. Unfortunately, there is no guarantee that a flash device will work as the flash cells does. Why? Well, that is all due to the existence of the **flash controller** and the **flash-translation layer (FTL)**. These makes sure that the host system can interact with the flash cells without having to worry about programming and erasing the cells and instead just interact with the data as if they were blocks of information that can just either be read or written. In addition, these perform more advanced operations that help extend the lifespan of your device. All of this is beneficial for most end users, but if you spot unexpected behaviour from your device then the cause could be the software of your device. In the next articles of this series then I will explain more about the FTL and typical constructs in the flash controller. 
