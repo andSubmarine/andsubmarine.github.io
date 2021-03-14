@@ -38,14 +38,14 @@ export default class ProjectPage extends Vue {
 
   async fetchArticles (n: number = 6) {
     const nArticles = this.index + n
-    const moarticles = await this.$content('articles')
+    const result = await this.$content('articles')
       .sortBy('published', 'desc')
       .limit(nArticles)
       .fetch()
-    // const moarticles = result.filter((article: any) =>
-    //  article &&
-    //  article.published &&
-    //  new Date(article.published).getTime() < new Date().getTime())
+    const moarticles = result.filter((article: any) =>
+      article &&
+      article.published &&
+      new Date(article.published).getTime() < new Date().getTime())
     if (moarticles.length < nArticles) {
       this.hasMoreArticles = false
       this.index = moarticles.length
