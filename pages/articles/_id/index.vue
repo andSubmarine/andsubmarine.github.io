@@ -9,6 +9,9 @@
           <h1>{{ page.title }}</h1>
           <em id="description">{{ page.description }}</em>
           <nuxt-content id="article-content" :document="page" />
+          <nuxt-link :to="{ name: 'articles-id', params: {id: nextArticle.slug}}">
+            Want to read more? Continue reading this article!
+          </nuxt-link>
           <hr>
           <b-media>
             <template #aside>
@@ -31,44 +34,55 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator'
+import { Component, getModule, Vue } from 'nuxt-property-decorator'
+import ContentModule from '~/store/ContentModule'
 
 @Component
 export default class Article extends Vue {
-    page: any = {};
+  page: any = {};
+  nextArticle: any = {};
 
-    head () {
-      return {
-        title: this.page.title + ' | ' + process.env.title,
-        meta: [
-          {
-            hid: this.page.slug
-          },
-          {
-            hid: 'description',
-            name: 'description',
-            content: (this.page.description) ? this.page.description : 'description'
-          }
-        ]
-      }
-    }
+  get lastUpdated () {
+    if (this.page) {
+      return 'Last updated: ' + new Date(this.page.updatedAt).toLocaleString('en-GB', {
+        year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit'
+      })
+    } else { return undefined }
+  }
 
-    async created () {
-      const id = this.$route.params.id
-      if (id) {
-        this.page = await this.$content('articles', id).fetch()
-      } else {
-        this.$router.push('/')
-      }
+  head () {
+    return {
+      title: this.page.title + ' | ' + process.env.title,
+      meta: [
+        {
+          hid: this.page.slug
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content: (this.page.description) ? this.page.description : 'description'
+        }
+      ]
     }
+  }
 
-    get lastUpdated () {
-      if (this.page) {
-        return 'Last updated: ' + new Date(this.page.updatedAt).toLocaleString('en-GB', {
-          year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit'
-        })
-      } else { return undefined }
+  async created () {
+    const id = this.$route.params.id
+    if (id) {
+      this.page = await this.$content('articles', id).fetch()
+      this.findNextArticle()
+    } else {
+      this.$router.push('/')
     }
+  }
+
+  findNextArticle () {
+    const articles = getModule(ContentModule, this.$store).articles
+
+    const pageIndex = articles.findIndex(item => item.slug === this.page.slug)
+
+    this.nextArticle = (pageIndex - 1 >= 0) ? articles[pageIndex - 1] : articles[articles.length - 1]
+  }
 }
 </script>
 

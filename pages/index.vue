@@ -1,7 +1,7 @@
 <template>
   <b-container fluid class="p-0">
     <ToTopButton />
-    <ImagePage first-id="about" second-id="more" />
+    <ImagePage first-id="about" second-id="articles" />
     <AboutPage />
     <ProjectPage />
   </b-container>
@@ -9,6 +9,8 @@
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
+import ContentModule from '~/store/ContentModule'
+
 @Component
 export default class IndexPage extends Vue {
   head () {
@@ -20,6 +22,10 @@ export default class IndexPage extends Vue {
         }
       ]
     }
+  }
+
+  created () {
+    this.$store.registerModule('contentModule', ContentModule)
   }
 }
 </script>

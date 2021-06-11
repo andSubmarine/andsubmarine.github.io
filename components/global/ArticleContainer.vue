@@ -1,39 +1,55 @@
 <template>
-  <b-card-group
-    v-if="articles && articles.length > 0"
-    class="card-container"
-  >
-    <nuxt-link
-      v-for="article in articles"
-      :key="article.slug"
-      :to="{ name: 'articles-id', params: {id: article.slug}}"
-      class="article-card"
-      aria-label="read article"
+  <b-row>
+    <b-card-group
+      v-if="loadedArticles && loadedArticles.length > 0"
+      class="card-container"
     >
-      <b-card
-        :title="article.title"
-        :img-src="article.url"
-        :img-alt="article.alt"
-        img-top
-        tag="article"
+      <nuxt-link
+        v-for="article in loadedArticles"
+        :key="article.slug"
+        :to="{ name: 'articles-id', params: {id: article.slug}}"
+        class="article-card"
+        aria-label="read article"
       >
-        <b-card-text>
-          {{ article.description }}
-        </b-card-text>
-        <template #footer>
-          <small class="text-muted">Published {{ publishedAt(article) }}</small>
-          <div class="d-flex justify-content-center">
-            <div class="m-2">
-              Tags:
+        <b-card
+          :title="article.title"
+          :img-src="article.url"
+          :img-alt="article.alt"
+          img-top
+          tag="article"
+        >
+          <b-card-text>
+            {{ article.description }}
+          </b-card-text>
+          <template #footer>
+            <small class="text-muted">Published {{ publishedAt(article) }}</small>
+            <div class="d-flex justify-content-center">
+              <div class="m-2">
+                Tags:
+              </div>
+              <div v-for="tag in tags(article)" :key="tag" class="tag m-2">
+                {{ tag }}
+              </div>
             </div>
-            <div v-for="tag in tags(article)" :key="tag" class="tag m-2">
-              {{ tag }}
-            </div>
-          </div>
-        </template>
-      </b-card>
-    </nuxt-link>
-  </b-card-group>
+          </template>
+        </b-card>
+      </nuxt-link>
+    </b-card-group>
+    <b-col id="#more">
+      <a
+        v-if="hasMoreArticles"
+        id="load-more"
+        href="javascript:void(0)"
+        @click="increaseArticleLimit()"
+      > Load more...
+      </a>
+      <p v-else id="no-more">
+        <font-awesome-icon icon="sad-cry" />
+        No more articles
+        <font-awesome-icon icon="sad-cry" />
+      </p>
+    </b-col>
+  </b-row>
 </template>
 
 <script lang="ts">
@@ -41,7 +57,25 @@ import { Prop, Vue, Component } from 'nuxt-property-decorator'
 
 @Component
 export default class ArticleContainer extends Vue {
-    @Prop() articles!: any;
+    @Prop() articles!: Array<any>;
+
+    readonly incr = 4
+
+    limit = this.incr
+
+    get loadedArticles () {
+      return this.articles.filter((_, idx) => idx < this.limit)
+    }
+
+    get hasMoreArticles () { return this.loadedArticles.length !== this.articles.length }
+
+    increaseArticleLimit () {
+      if (this.limit + this.incr > this.articles.length) {
+        this.limit = this.articles.length
+        return
+      }
+      this.limit += this.incr
+    }
 
     publishedAt (article: any) {
       return new Date(article.published).toLocaleString('en-GB', {
@@ -101,6 +135,20 @@ export default class ArticleContainer extends Vue {
   }
 }
 
+#more {
+  margin: 3vh;
+  font-family: monospace;
+}
+
+#load-more {
+  text-decoration: underline;
+}
+
+#load-more, #no-more {
+  color: #fff;
+  font-size: 5vw;
+}
+
 @media (min-width: 768px) {
   .article-card {
     max-width: calc(50% -  1em);
@@ -118,6 +166,10 @@ export default class ArticleContainer extends Vue {
         }
       }
     }
+  }
+
+  #load-more, #no-more {
+    font-size: 4vw;
   }
 }
 
@@ -139,6 +191,10 @@ export default class ArticleContainer extends Vue {
       }
     }
   }
+
+  #load-more, #no-more {
+    font-size: 3vw;
+  }
  }
 
 @media (min-width: 1400px) {
@@ -158,6 +214,10 @@ export default class ArticleContainer extends Vue {
         }
       }
     }
+  }
+
+  #load-more, #no-more {
+    font-size: 2vw;
   }
  }
 @media (min-width: 2000px) {
