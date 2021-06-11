@@ -9,9 +9,15 @@
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
-import ContentModule from '~/store/ContentModule'
+import ImagePage from '~/components/index/ImagePage.vue'
+import AboutPage from '~/components/index/AboutPage.vue'
+import ProjectPage from '~/components/index/ProjectPage.vue'
 
-@Component
+@Component({
+  components: {
+    ImagePage, AboutPage, ProjectPage
+  }
+})
 export default class IndexPage extends Vue {
   head () {
     return {
@@ -22,10 +28,6 @@ export default class IndexPage extends Vue {
         }
       ]
     }
-  }
-
-  created () {
-    this.$store.registerModule('contentModule', ContentModule)
   }
 }
 </script>

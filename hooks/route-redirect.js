@@ -7,7 +7,7 @@
 import parseurl from 'parseurl'
 
 /**
- * Connect middleware to handle redirecting to desired Web Applicatin Context Root.
+ * Connect middleware to handle redirecting to desired Web Application Context Root.
  *
  * Notice that Nuxt docs lacks explaning how to use hooks.
  * This is a sample router to help explain.
@@ -24,20 +24,28 @@ import parseurl from 'parseurl'
  * @param {Function} next middleware callback
  */
 export default desiredContextRoot =>
-  function projectHooksRouteRedirectPortal(req, res, next) {
+  function projectHooksRouteRedirectPortal (req, res, next) {
     const desiredContextRootRegExp = new RegExp(`^${desiredContextRoot}`)
-    const _parsedUrl = Reflect.has(req, '_parsedUrl') ? req._parsedUrl : null
+
+    const _parsedUrl = (req !== undefined && Reflect.has(req, '_parsedUrl')) ? req._parsedUrl : null
+
     const url = _parsedUrl !== null ? _parsedUrl : parseurl(req)
+
     const startsWithDesired = desiredContextRootRegExp.test(url.pathname)
+
     const isNotProperContextRoot = desiredContextRoot !== url.pathname
+
     if (isNotProperContextRoot && startsWithDesired === false) {
       const pathname = url.pathname === null ? '' : url.pathname
       const search = url.search === null ? '' : url.search
       const Location = desiredContextRoot + pathname + search
+
       res.writeHead(302, {
         Location
       })
+
       res.end()
     }
+
     next()
   }
