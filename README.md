@@ -1,5 +1,5 @@
 # blanke-tech
-[![Build Status](https://travis-ci.com/andSubmarine/andsubmarine.github.io.svg?branch=master)](https://travis-ci.com/andSubmarine/andsubmarine.github.io)
+[![cd](https://github.com/andSubmarine/andsubmarine.github.io/actions/workflows/cd.yml/badge.svg)](https://github.com/andSubmarine/andsubmarine.github.io/actions/workflows/cd.yml)
 
 ## Build Setup
 
