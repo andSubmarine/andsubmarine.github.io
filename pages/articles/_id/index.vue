@@ -88,7 +88,7 @@ export default class Article extends Vue {
 
 <style lang="scss">
 .article-page {
-  background-color: #F2EEEB;
+  background-color: #ffffff;
   min-height: 100vh;
 }
 #article-body {
