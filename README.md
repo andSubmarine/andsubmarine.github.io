@@ -1,4 +1,6 @@
 # blanke-tech
+This is the repository for my personal website. Built using Vue.js and Nuxt.js. Powered by GitHub Pages and GitHub Actions.
+
 [![cd](https://github.com/andSubmarine/andsubmarine.github.io/actions/workflows/cd.yml/badge.svg)](https://github.com/andSubmarine/andsubmarine.github.io/actions/workflows/cd.yml)
 
 ## Build Setup
