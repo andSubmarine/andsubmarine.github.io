@@ -1,10 +1,10 @@
 ---
-title: 'Website Design'
+title: Website Design
 description: 'Developing a website is "easy"!'
-url: './blob/github-website.png'
-alt: 'blanke-tech on Github '
-published: '2020-10-14T00:00:00Z'
-tags: [ 'web', 'dev', 'design', 'hosting' ]
+url: "./blob/github-website.png"
+alt: "blanke-tech on Github "
+published: "2020-10-14T00:00:00Z"
+tags: ["web", "dev", "design", "hosting"]
 ---
 Today, there exists a large variety of tools, frameworks and libraries for developing a website. You can use [Squarespace](https://www.squarespace.com/), [Wiz](https://www.wix.com/), [WordPress](https://wordpress.com/) or another website builder if you want to develop a site quickly. But then you are constrained by the builder's features and you become an expert in using the site rather than in how websites are built. You could build your website from scratch using HTML5, CSS3, JavaScript and libraries such as [Bootstrap](https://getbootstrap.com/) and [jQuery](https://jquery.com/) - but that often requires a lot of work to build something you'll be happy with. So what then?
 
