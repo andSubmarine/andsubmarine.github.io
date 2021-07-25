@@ -43,7 +43,7 @@ export default class ErrorPage extends Vue {
 
 <style lang="scss">
 .error-page {
-    background-color: black;
+    background-color: black !important;
     color: white;
     margin: 0 auto;
     min-height: 100vh;

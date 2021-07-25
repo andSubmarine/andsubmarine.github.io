@@ -9,7 +9,7 @@
           <h1>{{ page.title }}</h1>
           <em id="description">{{ page.description }}</em>
           <nuxt-content id="article-content" :document="page" />
-          <nuxt-link :to="{ name: 'articles-id', params: {id: nextArticle.slug}}">
+          <nuxt-link v-if="nextArticle && nextArticle.slug" :to="{ name: 'articles-id', params: {id: nextArticle.slug}}">
             Want to read more? Continue reading this article!
           </nuxt-link>
           <hr>
@@ -70,10 +70,13 @@ export default class Article extends Vue {
     const id = this.$route.params.id
     if (id) {
       this.page = await this.$content('articles', id).fetch()
-      this.findNextArticle()
     } else {
       this.$router.push('/')
     }
+  }
+
+  mounted () {
+    this.findNextArticle()
   }
 
   findNextArticle () {
