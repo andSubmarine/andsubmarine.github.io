@@ -24,7 +24,7 @@
     "bootstrap-vue": "^2.15.0",
     "fs": "0.0.1-security",
     "loader-utils": "^2.0.0",
-    "nuxt": "^2.15.6",
+    "nuxt": "^3.0.0",
     "nuxt-property-decorator": "^2.8.8"
   },
   "devDependencies": {
@@ -45,6 +45,6 @@
     "sass-loader": "^10.1.1",
     "ts-jest": "^26.1.3",
     "ts-loader": "8.2.0",
-    "vue-jest": "^3.0.4"
+    "vue-jest": "^4.0.1"
   }
 }
